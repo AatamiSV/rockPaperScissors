@@ -42,14 +42,14 @@ function round(playerSelection, computerSelection) {
 function game() {
     let playerPoints = 0;
     let computerPoints = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5;) {
         const winner = round(prompt("Rock, paper, scissors."), getComputerChoice());
         if (winner === 'player') {
             playerPoints++;
+            i++
         } else if (winner === 'computer'){
             computerPoints++;
-        } else if (winner === 'tie'){
-            i--;
+            i++
         }
         console.log("Player: " + playerPoints);
         console.log("Computer: " + computerPoints);
