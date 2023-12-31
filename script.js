@@ -16,8 +16,8 @@ function getComputerChoice() {
 function round(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     if (playerSelection === computerSelection) {
-        alert("You drew!");
-        round(prompt(), getComputerChoice());
+        console.log("You drew!");
+        return 'tie';
     }   else if (playerSelection === 'rock' && computerSelection === 'paper') {
         console.log("You lose! Paper beats rock.");
         return 'computer';
@@ -43,16 +43,16 @@ function game() {
     let playerPoints = 0;
     let computerPoints = 0;
     for (let i = 0; i < 5; i++) {
-        const winner = round(prompt(), getComputerChoice());
+        const winner = round(prompt("Rock, paper, scissors."), getComputerChoice());
         if (winner === 'player') {
             playerPoints++;
-            console.log(playerPoints);
-            console.log(computerPoints);
-        } else {
+        } else if (winner === 'computer'){
             computerPoints++;
-            console.log(playerPoints);
-            console.log(computerPoints);
+        } else if (winner === 'tie'){
+            i--;
         }
+        console.log("Player: " + playerPoints);
+        console.log("Computer: " + computerPoints);
     }
     if (playerPoints > computerPoints) {
         console.log("You win the game!!!");
